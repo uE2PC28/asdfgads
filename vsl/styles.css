@@ -1,0 +1,115 @@
+    body {
+      background-color: #f0f4f8;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    
+    /* Menu de cima */
+    
+    .menu {
+      position: fixed;
+      top: 0%;
+      width: 100%;
+      height: 70px; /* Ajuste a altura desejada */
+      background: linear-gradient(180deg, #f0f4f8, #fff);
+      display: flex;
+      margin: 0 auto;
+      justify-content: space-between;
+      padding: 5px;
+      box-sizing: border-box;
+      z-index: 9998; /* Para garantir que o menu fique acima de outros elementos */
+      border-radius: 0px 0px 20px 20px; /* Top-left, top-right, bottom-right, bottom-left */
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+
+    .menu::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #f0f4f8, #fff);
+      z-index: -1;
+      border-radius: 20px;
+    }
+    
+    .menu a {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #fff;
+    }
+    
+    
+    .menu a img {
+      max-width: 100%; /* Ajuste o tamanho máximo da imagem */
+      max-height: 100%; /* Ajuste o tamanho máximo da imagem */
+      display: block;
+    }
+
+    .buttons-container {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .valor-box {
+      width: 130px;
+      height: 25px;
+      background: linear-gradient(135deg, #4285f4, #4285f4);
+      box-shadow: 0 2px 15px rgba(32, 30, 186, 0.5);
+      border-radius: 12px;
+      padding: 10px;
+      align-items: center;
+      line-height: 25px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .valor-box span {
+      font-weight: bold;
+      font-size: 17px;
+    }
+    
+    #valor {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 21px;
+      color: white;
+    }
+    
+    #valor-saque {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 21px;
+    }
+
+        
+        .vsl {
+            background-color: white;
+            border-radius: 12px;
+            height: 100%;
+            width: 95%;
+            display: block;
+            margin: 0 auto;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+        }
+
+
+        .footer-text {
+          bottom: 0;
+          width: 100%;
+          text-align: center;
+          color: #ffffff; /* Cor do texto */
+          box-sizing: border-box; /* Evita que o padding afete a largura total */
+          padding-bottom: 25px;
+      }
