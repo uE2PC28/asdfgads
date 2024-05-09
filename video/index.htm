@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Página PIX</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Estilos globais */
+        body {
+            background-color: #000;
+            font-family: Arial, sans-serif;
+            color: white;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: auto;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .logo {
+            width: 150px;
+            height: 50px;
+            background-image: url('path/to/logo.png'); /* Substitua pelo caminho da sua logo */
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            margin-right: 20px;
+        }
+        .balance-box {
+            background-color: #7C3AED;
+            padding: 10px 20px;
+            border-radius: 10px; /* Alterado para 10px */
+            font-size: 14px;
+            margin-left: auto;
+            font-weight: bold; /* Adicionado bold */
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999; /* Garante que o popup esteja sempre acima dos outros elementos */
+        }
+        .popup img {
+            max-width: 90%;
+            max-height: 90%;
+            cursor: pointer;
+        }
+        .img {
+            max-width: 100%; /* Define largura máxima */
+            height: auto;
+        }
+        .loading-gif {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: none;
+            width: 300px;
+            z-index: 1; /* Garante que o GIF de carregamento esteja acima do efeito de desfoque */
+        }
+        .blur-effect {
+            filter: blur(5px); /* Efeito de desfoque */
+        }
+        .button-box {
+            margin: auto;
+            max-width: 100%;
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        .button-perfect {
+            background-color: #7C3AED;
+            color: #FFF;
+            border-radius: 10px;
+            padding: 15px 60px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            animation: swingButton 2s infinite alternate;
+        }
+
+        .button-perfect:hover {
+            background-color: #6A2ACB;
+        }
+
+        @keyframes swingButton {
+            0% {
+                transform: rotate(3deg);
+            }
+            100% {
+                transform: rotate(-3deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .button-box {
+                margin: auto;
+                max-width: 100%;
+                text-align: center;
+            }
+        }
+        .titulo {
+            font-weight: bold;
+            color: black;
+            font-size: 20px;
+        }
+        .frases {
+            color: black;
+        }
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const balanceBox = document.querySelector('.balance-box');
+            const initialBalance = 0;
+            const finalBalance = 143.08;
+            const duration = 1000; // 1 segundo
+
+            let currentBalance = initialBalance;
+
+            const updateBalance = () => {
+                const step = (finalBalance - initialBalance) / duration * 10;
+                if (currentBalance < finalBalance) {
+                    currentBalance += step;
+                    balanceBox.textContent = `Saldo: R$${currentBalance.toFixed(2)}`;
+                    setTimeout(updateBalance, 10);
+                } else {
+                    balanceBox.textContent = `Saldo: R$${finalBalance.toFixed(2)}`;
+                }
+            };
+
+            updateBalance();
+
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo"></div>
+            <div class="balance-box">Saldo: R$143,08</div>
+        </div>
+    </div>
+    <img src="path\to\img.jpg.jpeg" alt="Imagem Responsiva" class="img">
+    <div style="position:relative;padding-top:177.3399014778325%;"><iframe id="panda-2431da78-259f-4222-a73a-3e8354cfe6e1" src="https://player-vz-f0fcd6ab-29f.tv.pandavideo.com.br/embed/?v=2431da78-259f-4222-a73a-3e8354cfe6e1&iosFakeFullscreen=true" style="border:none;position:absolute;top:0;left:0;" allow="accelerometer;gyroscope;autoplay;encrypted-media;picture-in-picture" allowfullscreen="true" width="100%" height="100%" fetchpriority="high"></iframe><script>if(!document.querySelector('script[src="https://player.pandavideo.com.br/api.v2.js"]')){let s=document.createElement('script');s.src='https://player.pandavideo.com.br/api.v2.js'; s.async=true; document.head.appendChild(s);} window.pandascripttag = window.pandascripttag || [];window.pandascripttag.push(function (){const panda_id_player = 'panda-2431da78-259f-4222-a73a-3e8354cfe6e1';const p=new PandaPlayer(panda_id_player,{onReady(){p.loadWindowScreen({panda_id_player});}});})</script></div>
+    
+    
+        <div id="87bd0988-d9f7-4ae5-a261-7f97dfcb8b3a"></div>
+
+        <script>if(!document.querySelector('script[src^="https://player.pandavideo.com.br/api.v2.js"]')){let s=document.createElement('script'); s.src='https://player.pandavideo.com.br/api.v2.js'; s.async=true; document.head.appendChild(s);}window.pandascripttag=window.pandascripttag || [];window.pandascripttag.push(function (){const p=new PandaPlayer('panda-2431da78-259f-4222-a73a-3e8354cfe6e1',{onReady(){p.loadButtonInTime({fetchApi: true})}});})</script>
+
+
+    
+
+</body>
+</html>
