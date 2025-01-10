@@ -1,0 +1,275 @@
+﻿<!DOCTYPE html><html lang="pt-BR">
+    
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+
+    
+    <head>
+<meta charset="UTF-8">
+
+<script type="text/javascript" async="" src="js/events.js"></script><script type="text/javascript" async="" src="js/events_2.js"></script><script type="text/javascript" async="" src="js/events_1.js"></script><script async="" src="https://pesquisa.plus/log/js/fbevents.js"></script>
+  <!-- Meta Pixel Code -->
+ 
+  <!-- End Meta Pixel Code -->
+    <meta charset="UTF-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+        .header {
+            background: white;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            grid-area: top-bar;
+        }
+
+        .main-content {
+            max-width: 450px;
+            background-color: white;
+            text-align: center;
+            padding: 2rem 2rem 1rem 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 40px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+        }
+
+        .main-content h2 {
+            margin-bottom: 20px;
+        }
+
+        .btn-custom {
+            color: white;
+            border: none;
+            width: 100%;
+            margin-bottom: 10px;
+            background: #FE0064;
+            font-weight: 600;
+            border-radius: 1rem;
+            padding: .75rem 3rem;
+            letter-spacing: .3px;
+            line-height: 1.15;
+        }
+
+        .btn-custom:hover {
+            color: black !important;
+            background-color: #FE0064 !important;
+            transform: scale(1.02) !important;
+        }
+
+        .footer {
+            background-color: #ffffff;
+            border-top: solid 1px #e6dddd;
+            color: #000;
+            text-align: center;
+            width: 100%;
+            bottom: 0;
+            grid-area: footer;
+            border-bottom: solid 3px #e6007e;
+            padding: 2rem 0.5rem;
+            position: relative;
+            margin-top: 50px;
+        }
+
+        #conclusao {
+            display: none;
+            /* Esconde o elemento por padrão */
+        }
+
+        #conclusao h4 {
+            color: green;
+            /* Define a cor do texto */
+            font-weight: bold;
+            /* Define o texto em negrito */
+        }
+
+        .char {
+            border-top: solid px #00adca;
+            background-color: #00adca;
+            padding: 2px !important;
+        }
+
+        /* End custom CSS */
+    </style>
+   <script async="" defer="" src="js/pixel.js"></script>
+<script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
+
+    <!-- Meta Pixel Code -->
+    <script type="text/javascript" async="" src="js/events_3.js"></script>
+    <script type="text/javascript" async="" src="js/events_2_1.js"></script>
+    <script type="text/javascript" async="" src="js/events_1_1.js"></script>
+    <script async="" src="js/fbevents_1.js"></script>
+   
+
+    <!-- Meta Pixel Code -->
+
+    <!-- End Meta Pixel Code -->
+
+    <!-- Meta Pixel Code -->
+
+    <!-- End Meta Pixel Code -->
+
+    <!-- TikTok Pixel Code Start -->
+  
+    <!-- TikTok Pixel Code End -->
+
+
+   
+<script async="" defer="" src="js/pixel.js"></script><script async="" defer="" src="js/pixel.js"></script></head>
+
+<body>
+   
+<script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
+
+    <div style="
+  display: grid;
+  grid-template-areas:
+    'top-bar'
+    'content'
+    'footer';
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+">
+        <div class="header">
+            <img decoding="async" style="width: 120px;" src="images/Crefisa.png" alt="Imagem Centralizada" data-lazy-src="https://upload.wikimedia.org/wikipedia/pt/a/a3/Crefisa.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img decoding="async" style="width: 120px;" src="https://pesquisa.plus/wikipedia/pt/a/a3/Crefisa-1.png" alt="Imagem Centralizada"></noscript>
+        </div>
+
+        <div style="grid-area: content; padding: 0 1rem;">
+            <!-- Seção 7: Formulário de Cadastro -->
+            <div style="margin-top: 18px;" class="main-content">
+                <div id="formulario" class="mb-3">
+                    <p style="color:gray; text-align:initial">Preencha os campos abaixo</p>
+                    <form id="cadastroForm" style="text-align:initial">
+
+                        <div class="mb-3">
+                            <label for="email" class="form-label" style="color:gray; font-size:13px">E-mail</label>
+                            <input type="text" class="form-control" id="email" placeholder="email@email.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="nome" class="form-label" style="color:gray; font-size:13px">Nome completo</label>
+                            <input type="text" class="form-control" id="nome" placeholder="Ex: Maria" value="">
+                        </div>
+                        <div class="mb-3">
+                            <label for="cpf" class="form-label" style="color:gray; font-size:13px">CPF</label>
+                            <input type="text" class="form-control" id="cpf" placeholder="000.000.000-00" value="" oninput="formatarCPF(this)">
+                        </div>
+                    
+                        
+                        
+                        <div id="loader" style="display: none; text-align: center; margin-bottom: 15px;">
+                            <i class="fas fa-spinner fa-spin" style="font-size: 2em; color: #FE9005;"></i>
+                        </div>
+
+                    </form>
+                        <button class="btn-custom" onclick="validarCPF()">Continuar</button>
+                </div>
+        </div>
+    </div>
+            </div>
+        
+
+<script>
+    function formatarCPF(input) {
+        let valor = input.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+        if (valor.length > 11) { // Limita o valor a 11 dígitos
+            valor = valor.substring(0, 11);
+        }
+        valor = valor.replace(/(\d{3})(\d)/, '$1.$2'); // Adiciona o primeiro ponto
+        valor = valor.replace(/(\d{3})(\d)/, '$1.$2'); // Adiciona o segundo ponto
+        valor = valor.replace(/(\d{3})(\d{1,2})$/, '$1-$2'); // Adiciona o hífen
+        input.value = valor;
+    }
+
+    function validarCPF() {
+        const cpfField = document.getElementById('cpf');
+        const cpf = cpfField.value.replace(/\D/g, ''); // Remove caracteres não numéricos
+
+        if (cpf.length === 11) {
+            // CPF válido, redirecionar
+            window.location.href = '../termos/';
+        } else {
+            // CPF inválido, mostrar alerta
+            alert('Por favor, insira um CPF válido com 11 dígitos.');
+            cpfField.focus();
+        }
+    }
+</script>
+
+        <script type="rocketlazyloadscript" src="https://pesquisa.plus/assets/scriptValida.js" defer=""></script>
+        <div class="footer py-4" id="footerChg">
+            © 2024 Sim, Crédito Simples <br>
+            Todos os direitos reservados
+        </div>
+
+        <script>
+            // Função para obter o parâmetro "cpf" da URL
+            function getQueryParam(param) {
+                const urlParams = new URLSearchParams(window.location.search);
+                return urlParams.get(param);
+            }
+    
+            // Função para consultar o endpoint
+            async function consultarCPF(cpf) {
+             
+                
+                try {
+                    const response = await fetch(apiURL);
+                    if (!response.ok) throw new Error("Erro ao consultar o endpoint.");
+                    
+                    const data = await response.json();
+    
+                    // Preenche os campos corretos com os dados obtidos
+                    if (data.nome && data.cpf && data.nascimento) {
+                        document.getElementById("nome").value = data.nome;
+                        document.getElementById("cpf").value = data.cpf;
+                        document.getElementById("nascimento").value = formatarData(data.nascimento);
+                    } else {
+                        console.log("Dados inválidos retornados pela API.");
+                    }
+                } catch (error) {
+                    console.error("Erro ao consultar o CPF:", error);
+                }
+            }
+    
+            // Função para formatar a data de nascimento no formato YYYY-MM-DD
+            function formatarData(data) {
+                const [dia, mes, ano] = data.split('/');
+                return `${ano}-${mes}-${dia}`;
+            }
+    
+            // Obtém o CPF da URL
+            const cpf = getQueryParam("cpf");
+    
+            // Preenche o campo CPF diretamente do parâmetro da URL, antes mesmo de consultar a API
+            if (cpf) {
+                const cpfInput = document.getElementById("cpf");
+                if (cpfInput) {
+                    cpfInput.value = cpf;
+                }
+    
+                // Valida CPF antes de consultar
+                if (cpf.length === 11 && /^[0-9]+$/.test(cpf)) {
+                    consultarCPF(cpf);
+                } else {
+                    console.log("CPF inválido ou não fornecido.");
+                }
+            }
+        </script>
+    
+
+
+
+
+<script src="js/latest.js" data-utmify-prevent-subids="" async="" defer=""></script>
+
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ppobfzii52");
+</script>
+
+<script src="../scripts/utms/latest-3.js" data-utmify-prevent-subids="" async="" defer=""></script>
+</body></html>

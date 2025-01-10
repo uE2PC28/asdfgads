@@ -1,0 +1,181 @@
+<!DOCTYPE html><html lang="pt-BR">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    
+    <head>
+	<meta charset="UTF-8">
+
+<script type="text/javascript" async="" src="js/events.js"></script><script type="text/javascript" async="" src="js/events_2.js"></script><script type="text/javascript" async="" src="js/events_1.js"></script><script async="" src="https://pesquisa.plus/carregando/js/fbevents.js"></script>
+    <meta charset="UTF-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+        .header {
+            background: #FE0064;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            grid-area: top-bar;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #FE0064;
+            color: white;
+            text-align: center;
+            flex-direction: column;
+        }
+
+        .main-content {
+            max-width: 100%;
+            padding: 20px;
+            border-top: solid 1px #fdc603;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 0px auto !important;
+            border-radius: 0px !important;
+        }
+
+        .loading-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid white;
+            width: 40px;
+            height: 40px;
+            animation: spin 2s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .footer {
+            background-color: #ffffff;
+            border-top: solid 1px #e6dddd;
+            color: #000;
+            text-align: center;
+            width: 100%;
+            bottom: 0;
+            grid-area: footer;
+            border-bottom: solid 3px #e6007e;
+            padding: 2rem 0.5rem;
+            position: relative;
+            margin-top: 50px;
+        }
+    </style>
+
+
+
+   
+<script async="" defer="" src="js/pixel.js"></script>
+
+
+  <!-- Meta Pixel Code -->
+ 
+  <!-- End Meta Pixel Code -->
+
+</head>
+
+<body>
+
+    <div style="
+  display: grid;
+  grid-template-areas:
+    'top-bar'
+    'content'
+    'footer';
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+">
+        <div class="header">
+            <img decoding="async" style="width: 120px;" src="images/SIM-Branco.png" alt="Imagem Centralizada" data-lazy-src="https://upload.wikimedia.org/wikipedia/pt/a/a3/Crefisa.png" data-ll-status="loaded" class="entered lazyloaded"><noscript><img decoding="async" style="width: 120px;"
+                    src="https://pesquisa.plus/wikipedia/pt/a/a3/Crefisa-2.png" alt="Imagem Centralizada"></noscript>
+        </div>
+
+        <div style="grid-area: content; padding: 0;">
+            <div style="margin-top: 40px;" class="main-content">
+                <div id="loading-section" class="loading-section" style="display: flex;position: relative;top: -14rem;">
+                    <div class="loading-content">
+                        <div class="spinner"></div>
+                        <p id="loading-text" style="font-size: 22px;">Aguarde a resposta do sistema...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+       <script>
+    function iniciarCarregamento() {
+        const frases = [
+            "Buscando a melhor oferta pra você...",
+            "Verificando sua aptidão para receber crédito.",
+            "Aguarde a Resposta do Sistema.",
+            "Estamos quase lá..."
+        ];
+        let fraseIndex = 0;
+        document.getElementById('loading-section').style.display = 'flex';
+        const fraseInterval = setInterval(() => {
+            if (fraseIndex < frases.length) {
+                document.getElementById('loading-text').innerText = frases[fraseIndex];
+                fraseIndex++;
+            } else {
+                fraseIndex = 0; // Reinicia as frases para continuar o loop
+            }
+        }, 1000);
+
+        setTimeout(() => {
+            clearInterval(fraseInterval);
+
+            // Captura os parâmetros UTM da URL atual
+            const urlParams = new URLSearchParams(window.location.search);
+            const utmParams = urlParams.toString();
+
+            // Constrói a nova URL com os parâmetros UTM, se existirem
+            let redirectUrl = '../limite/';
+            if (utmParams) {
+                redirectUrl += '?' + utmParams;
+            }
+
+            // Redireciona para a nova URL
+            window.location.href = redirectUrl;
+        }, 6000);
+    }
+
+    // Iniciar o carregamento ao carregar a seção
+    iniciarCarregamento();
+</script>
+
+
+
+        <div class="footer py-4" id="footerChg">
+            © 2024 Positivo Brasil. CNPJ 36.401.269/0001-27. <br>
+            Todos os direitos reservados
+        </div>
+    </div>
+
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "ppobfzii52");
+</script>
+
+
+
+</body></html>
